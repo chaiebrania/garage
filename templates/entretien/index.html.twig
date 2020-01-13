@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-top: 10px">
+
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col"><a href="{{ path('entretien_new') }}" class="btn btn-success" > add Entretien</a></div>
+        </div>
+        <table class="table" style="margin-top: 5px">
+            <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Montant en Dinard</th>
+                <th>Description</th>
+                <th>Matricul</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entretien in entretiens %}
+                <tr>
+                    <td>{{ entretien.id }}</td>
+                    <td>{{ entretien.price }}</td>
+                    <td>{{ entretien.description }}</td>
+                    <td>{{ entretien.getVehicle().matricule }}</td>
+                    <td>
+                        <a href="{{ path('entretien_edit', {'id': entretien.id}) }}" class="btn btn-warning" >Edit</a>
+                        <a href="{{ path('entretien_delete', {'id': entretien.id}) }}" class="btn btn-danger" >Remove</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+<?php return [PHP_INT_MAX, static function () {
+
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+            clone $p['Doctrine\\ORM\\Mapping\\Column'],
+            clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'length' => [
+                    255,
+                    255,
+                ],
+                'maxMessage' => [
+                    2 => 'la modele de voiture est invalide',
+                ],
+                'minMessage' => [
+                    2 => 'la modele de voiture est invalide',
+                ],
+                'max' => [
+                    2 => 10,
+                ],
+                'min' => [
+                    2 => 2,
+                ],
+                'groups' => [
+                    2 => [
+                        'Default',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+            $o[1],
+            $o[2],
+        ],
+        []
+    );
+
+}];

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-top: 10px">
+
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col"><a href="{{ path('vehicle_new') }}" class="btn btn-success" > add Vehicle</a></div>
+        </div>
+        <table class="table" style="margin-top: 5px">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Model</th>
+                <th>Date</th>
+                <th>Matricule</th>
+                <th>options</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for vehicle in vehicles %}
+                <tr>
+                    <td>{{ vehicle.id }}</td>
+                    <td>{{ vehicle.marque }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>{{ vehicle.annee ? vehicle.annee|date('Y-m-d') : '' }}</td>
+                    <td>{{ vehicle.matricule }}</td>
+                    <td>
+                        <a href="{{ path('vehicle_edit', {'id': vehicle.id}) }}" class="btn btn-warning" >Edit</a>
+                        <a href="{{ path('vehicle_delete', {'id': vehicle.id}) }}" class="btn btn-danger" >Remove</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+{% endblock %}

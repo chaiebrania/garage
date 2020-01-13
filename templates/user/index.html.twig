@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+   <div class="container" style="margin-top: 10px">
+
+           <div class="row">
+               <div class="col-10"></div>
+               <div class="col"><a href="{{ path('user_new') }}" class="btn btn-success" > add Client</a></div>
+           </div>
+       <table class="table" style="margin-top: 5px">
+           <thead class="thead-dark">
+           <tr>
+               <th scope="col">#</th>
+               <th scope="col">Nom</th>
+               <th scope="col">Email</th>
+               <th scope="col">Options</th>
+           </tr>
+           </thead>
+           <tbody>
+           {% for user in users %}
+           <tr>
+               <th scope="row">{{ user.id}}</th>
+               <td>{{ user.username }}</td>
+               <td>{{ user.email }}</td>
+               <td>
+                   <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning" >Edit</a>
+                   <a href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-danger" >Remove</a>
+               </td>
+           </tr>
+           {% endfor %}
+
+           </tbody>
+       </table>
+
+
+
+   </div>
+{% endblock %}
